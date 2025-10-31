@@ -1,0 +1,47 @@
+﻿<! DOCTYPE html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+    <title>HN - TP LOCAL</title>
+    <link rel="stylesheet" href="~/resources/Index.css" />
+    <link rel="stylesheet" href="~/resources/Form.css" />
+</head>
+<body>
+    <header>
+        <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <h1>Liste des Avis</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/Home/Index">Accueil</a></li>
+            <li><a href="/Home/Index/Form">Formulaire</a></li>
+        </ul>
+    </nav>
+    <section>
+        <p>
+           @* Tableau de la liste des avis *@
+            <table><caption>Liste</caption>
+                <tr>
+                    <td> <label for="nom">Nom</label></td>
+                    <td> <label for="prenom">Prenom</label></td>
+                    <td> <label for="opinion">Avis donné</label></td>
+                </tr>
+                @foreach (var opinion in Model)
+                {
+                    <tr>
+                        <td>@opinion.LastName</td>
+                        <td>@opinion.FirstName</td>
+                        @if (@opinion.OpinionGiven == "O")
+                        {
+                            <td style="background-color:green">Oui</td>
+                        }
+                        else
+                        {
+                            <td style="background-color:red">Non</td>
+                        }
+                    </tr>
+                }
+            </table>
+        </p>
+    </section>
+</body>
+</html>
